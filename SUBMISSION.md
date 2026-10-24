@@ -13,5 +13,5 @@ https://speedrunweb-api-be.vercel.app
 3. Dokumentasi API (di README):
 https://github.com/firm65nsyah/speedrunweb-api-be#readme
 
-4. Bukti pengujian (export collection):
-https://github.com/firm65nsyah/speedrunweb-api-be/blob/main/postman_collection.json
+4. Bukti pengujian dan dafter Endpoint (export collection):
+https://github.com/firm65nsyah/speedrunweb-api-be/blob/master/Speedrun%20API.postman_collection.json
