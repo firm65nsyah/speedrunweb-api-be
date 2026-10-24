@@ -1,0 +1,169 @@
+{
+  "info": {
+    "name": "Speedrun Leaderboard REST API",
+    "description": "Koleksi Postman untuk pengujian Speedrun Leaderboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "0. Root & Health",
+      "item": [
+        {
+          "name": "GET Root Index",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": ["{{baseUrl}}"],
+              "path": [""]
+            }
+          }
+        },
+        {
+          "name": "GET Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "1. Master Data",
+      "item": [
+        {
+          "name": "GET Genres",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/genres",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "genres"]
+            }
+          }
+        },
+        {
+          "name": "GET Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories"]
+            }
+          }
+        },
+        {
+          "name": "GET Leaderboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/leaderboard",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "leaderboard"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Games CRUD",
+      "item": [
+        {
+          "name": "GET All Games",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/games",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "games"]
+            }
+          }
+        },
+        {
+          "name": "GET Game By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/games/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "games", "1"]
+            }
+          }
+        },
+        {
+          "name": "POST Create Game (201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Hades\",\n  \"genre_id\": 2,\n  \"description\": \"Rogue-like action dungeon crawler karya Supergiant Games.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/games",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "games"]
+            }
+          }
+        },
+        {
+          "name": "PUT Update Game (200)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Deskripsi game yang telah diperbarui.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/games/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "games", "1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Game (409 Conflict - Has Categories)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/games/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "games", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
